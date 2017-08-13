@@ -36,6 +36,8 @@ b) na memória rom, porém somente a parte que está sendo executata é armazena
 Questão 4: a Havard apresenta os dois sistemas de memória RAM e ROM separados, portanto é mais eficiente e permite uma maior velocidade na excecução, já a arquitetura Von Neumann possúi um sistema único de memória e apesar de ocupar menos espaço acaba tomando muito tempo para processar os dados e o consumo de energia é maior.
 
 Questão 5:
+a) little endian 0xDC    0xBA   0x15   0x08
+b) big endian 0x80    0x51   0xAB  0xCD
 
 Questão 6: a tranferÊncia acontece com bytes ou palavras de 2 em 2 bits, o seu endereço é dado pelo byte no endereço menor( sempre par) e pode ser lida em um ciclo de clock do barramento.
 
