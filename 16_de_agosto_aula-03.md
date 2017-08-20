@@ -18,3 +18,7 @@ Reescreva o código da questão 3 usando a função da questão 4.
 
 questão 1: 
 a) A |= BIT0;  
+
+b) A |= BIT0 + BIT1;
+
+c) 
