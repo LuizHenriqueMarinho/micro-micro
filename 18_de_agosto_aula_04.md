@@ -19,7 +19,23 @@ sub.w #01, R6
 d)i+=2
 add.w #02, R7
 
-e)-=2
+e)j-=2
 sub.w #02, R8
 
 questão 2:
+a) f=0
+clr.w R4
+
+b) g++
+inc.w R5
+
+c) h--
+dec.h R6
+
+d) i+=2
+incd.w R7
+
+e) j-=2
+decd.w R8
+
+
