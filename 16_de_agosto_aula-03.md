@@ -30,4 +30,5 @@ e) A ~ BIT7;
 f) ????????
 
 Questão 2
-#include <msp450g
+#include <msp450g2553.h>
+#define LEDS= (BIT1 + BIT0) 
