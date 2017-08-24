@@ -21,4 +21,13 @@ a) A |= BIT0;
 
 b) A |= BIT0 + BIT1;
 
-c) 
+c) A |= BIT2;
+ 
+d) A &=~ (BIT5 + BIT4);  ??????
+
+e) A ~ BIT7;
+
+f) ????????
+
+Questão 2
+#include <msp450g
