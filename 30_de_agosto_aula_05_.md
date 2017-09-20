@@ -25,6 +25,23 @@ R9 ~ (BITF)
 
 if(i>j) f = g+h+10;
 else f = g-h-10;
+comp R7,R8 // (I=R7)>(J=R8)=(R8-R6<0) N=1
+jn IF  // Se o bit n for setado pula para a label[IF]
+
+//else
+mov.w #10,R11  // R11=10
+sub.w R11,R6;  // R6[H] = R6[H] - R11
+sub.w R6,R5;  // R5[G] = R5[G] - R6[H]
+mov.w R4,R5;    // R4[F]=R5[G]
+jmp FIM   // Pular diretamente para o FIM
+
+IF:
+mov.w #10,R4[F]; //R4[F]=10
+add.w R5[g],R4; // R4[F]=R4[F]+R5[G]
+add.w R6[h],R4; // R4[F]= R4[F]+R6[H]
+jmp FIM   // Pular diretamente para o FIM
+
+FIM:
 
 
 
