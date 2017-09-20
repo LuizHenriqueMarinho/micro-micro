@@ -38,4 +38,20 @@ incd.w R7
 e) j-=2
 decd.w R8
 
+Questão 3
 
+a) f *= 2
+
+rla.w R4
+
+b)
+ g *= 3
+ 
+ clr.w R4;
+
+add.w R5,R4;
+add.w R5,R4;
+add.w R5,R4;
+mov.w R4,R5;
+
+c)
