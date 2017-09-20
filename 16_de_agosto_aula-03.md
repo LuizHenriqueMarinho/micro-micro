@@ -23,12 +23,133 @@ b) A |= BIT0 + BIT1;
 
 c) A |= BIT2;
  
-d) A &=~ (BIT5 + BIT4);  ??????
+d) A &=~ (BIT5 + BIT4); 
 
 e) A ~ BIT7;
 
-f) ????????
+f) a~(BIT7+BIT6+BIT5+BIT4);
+a|=(BIT3+BIT2+BIT1+BIT0);
 
 Questão 2
 #include <msp450g2553.h>
-#define LEDS= (BIT1 + BIT0) 
+#define LEDS=(BIT1 +BIT0)    
+#define BTN
+int main (void)
+{
+  WDTCTL= WDTPW + WDTHOLD;
+  PIOUT=0;
+  PIDIR= LEDS;
+  FOR(;;)
+  {
+    IF (BTN=1)
+    {
+      PIOUT|=LEDS;
+      BTN=0;    
+    }
+    ELSE
+    {
+      PIOUT=~LEDS;
+      BTN=1;    
+    }  
+}
+
+Questão 3
+#include <msp450g2553.h>
+#define LEDS=(BIT1 +BIT0) /*(bitx + bity) */
+#define BTN=0   /* AUXILIAR */
+int main (void)
+{
+  WDTCTL= WDTPW + WDTHOLD;
+  PIOUT=0;
+  PIDIR= LEDS;
+  FOR(;;)
+  {
+    WHILE(P1IN & BTN < 4){
+    PIOUT~LEDS;
+    BTN++;
+    }
+    BTN=O;
+  
+  }
+}
+
+Questão 4
+
+#include <msp450g2553.h>
+#define LEDS=(BIT1+BIT0)  /*(bitx + bity) */
+#define BTN=0   /* AUXILIAR */
+int main (void)
+{
+  WDTCTL= WDTPW + WDTHOLD;
+  PIOUT=0;
+  PIDIR= LEDS;
+  FOR(;;)
+  {
+    WHILE(BTN < 2){
+    PIOUT~LEDS;
+    BTN++;
+    }  
+  }
+} 
+
+Questão 5
+#include <msp450g2553.h>
+#define LEDS=(BIT1 +BIT0) /*(bitx + bity) */
+#define BTN=0   /* AUXILIAR */
+uma_vez ()
+{
+  WDTCTL= WDTPW + WDTHOLD;
+  PIOUT=0;
+  PIDIR= LEDS;
+  FOR(;;)
+  {
+    WHILE(BTN < 2){
+    PIOUT~LEDS;
+    BTN++;
+    }  
+  }
+} 
+int main (void)
+{
+  WDTCTL= WDTPW + WDTHOLD;
+  BTN2=0;
+  PIOUT=0;
+  PIDIR= LEDS;
+  FOR(;;)
+  {
+    WHILE(BTN2<2){
+    uma_vez ()
+    BTN2++;
+    }
+}
+
+Questão 6
+#include <msp450g2553.h>
+#define LEDS = ( BIT1 + BIT0)
+#define BTN = 0
+
+uma_vez()
+{
+  WDTCTL= WDTPW + WDTHOLD;
+  PIOUT=0;
+  PIDIR= LEDS;
+  FOR(;;)
+  {
+    WHILE(BTN < 2){
+    PIOUT~LEDS;
+    BTN++;
+    }  
+  }
+} 
+int main(void)
+WDTCTL= WDTPW + WDTHOLD;
+  PIOUT=0;
+  BTN2=0;
+   PIDIR= LEDS;
+  FOR(;;)
+  {
+    WHILE(P1IN & BTN2<2){
+    led_uma_vez ();
+    BTN2++;
+    }
+}
