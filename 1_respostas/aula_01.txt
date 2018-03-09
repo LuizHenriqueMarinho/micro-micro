@@ -1,0 +1,21 @@
+O que são sistemas embarcados?
+
+O que são sistemas microprocesssados?
+
+Apresente aplicações de sistemas embarcados: (a) Para a indústria automotiva; (b) Para eletrodomésticos; (c) Para automação industrial.
+
+Cite arquiteturas possíveis e as diferenças entre elas.
+
+Por que usamos o MSP430 na disciplina, ao invés de outro microcontrolador?
+
+Respostas:
+
+Questão 1:Os sistemas embarcados são resposáveis por realizar tarefas determinadas com requisitos específicos repetidas vezes. Possuem as características de um computador porém com funções específicas, o que permite maior portabilidade e menor ocupação de espaço.
+
+Questão 2:Os sistemas microprocessados é um circuito integrado compacto que realiza as principais funções de um PC, tais como cálculo e tomada de decisões, como se fosse um "cérebro" do computador" armazenam e excecutam instruções em binário.
+
+Questão 3: a) mesmo antes dos novos veículos autônomos, os sistemas embarcados já estavam presentes na industria automotiva por mais simples que seja a tarefa, como por exemplo no sistema de sensor de ré ou os freios abs, sistema de transmissão e injeção eletrônica entre outros, posteriormente os sistemas embarcados permitiram o avanço do entretenimento nos veículos, como tela interativa e sistemas avançados de som. b) As geladeiras são um exemplo de como a inteligência artificial embutida em sistemas embarcados revolucionou o conceito de eltrodomésticos, as smart tvs possuem cada vez mais sistemas embarcados para uma diversidade de aplicções, se comparando até mesmo a um computador completo, fogões e micro-ondas também seguem no mesmo esquema. c) A área de robótica e mecatrônica está cada vez mais relacionada aos sistemas embarcados e maquinas robóticas substituem a mão de obra humana em todos os setores da indústria, como cada máquina exerce uma função especifica, os sitemas embarcados são implemntados para uam otimização no serviço.
+
+Questão 4: Havard architecture - além da CPU possui um sistem com memórias RAM e ROM de acesso distintos e independentes, a memória RAM (acesso aleatório) é volátil, ou seja, pode ser alterada a qualquer momento, já a memória ROM (apenas leitura) é não=volátil.Essa separação permite a leitura simultânea de dados Von Neumann architecture - possui uma CPU ligada a memória RAM e ROM simultânemanete, ou seja, os blocos de memória são dependentes e interligados em um único espaço de memória, o que a torna menos eficiênte.
+
+Questão 5: porque o MSP430 está mais próximo do que se utiliza no mercado, tendo em vista a maior eficiência se tratando de otimização de espaço e memória e menor consumo de energia, apesar disso apresenta a mesma funcionalidade do arduino por exemplo, a desvantagem é a complexibilidade na hora de programar e implmentar na placa.
