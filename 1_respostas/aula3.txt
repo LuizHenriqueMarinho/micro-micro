@@ -22,9 +22,21 @@ e) A ~ BIT7;
 
 f) a~(BIT7+BIT6+BIT5+BIT4); a|=(BIT3+BIT2+BIT1+BIT0);
 
-Questão 2 #include <msp450g2553.h> #define LEDS=(BIT1 +BIT0)
-#define BTN int main (void) { WDTCTL= WDTPW + WDTHOLD; PIOUT=0; PIDIR= LEDS; FOR(;;) { IF (BTN=1) { PIOUT|=LEDS; BTN=0;
-} ELSE { PIOUT=~LEDS; BTN=1;
+Questão 2 #include <msp450g2553.h> 
+#define LEDS=(BIT1 +BIT0)
+#define BTN 
+int main (void) { 
+WDTCTL= WDTPW + WDTHOLD;
+PIOUT=0; 
+PIDIR= LEDS;
+FOR(;;){
+IF (BTN=1) 
+{
+PIOUT|=LEDS; BTN=0;
+} 
+ELSE 
+{
+PIOUT=~LEDS; BTN=1;
 }
 }
 
