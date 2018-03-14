@@ -14,9 +14,9 @@ questão 1: a) A |= BIT0;
 
 b) A |= BIT0 + BIT1;
 
-c) A |= BIT2;
+c) A &=~ BIT2;
 
-d) A &=~ (BIT5 + BIT4);
+d) A &=~ (BIT2 + BIT3);
 
 e) A ~ BIT7;
 
