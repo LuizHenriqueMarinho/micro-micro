@@ -40,21 +40,101 @@ PIOUT=~LEDS; BTN=1;
 }
 }
 
-Questão 3 #include <msp450g2553.h> 
-#define LEDS=(BIT1 +BIT0) /*(bitx + bity) / #define BTN=0 / AUXILIAR */ 
-int main (void) { WDTCTL= WDTPW + WDTHOLD; PIOUT=0; PIDIR= LEDS; FOR(;;) { WHILE(P1IN & BTN < 4){ PIOUT~LEDS; BTN++; } BTN=O;
+Questão 3 
+#include <msp450g2553.h> 
+#define LEDS=(BIT1 +BIT0) /*(bitx + bity) / 
+#define BTN=0 / AUXILIAR */ 
+int main (void) {
+WDTCTL= WDTPW + WDTHOLD; 
+PIOUT=0; 
+PIDIR= LEDS; 
+FOR(;;) 
+{ 
+WHILE(P1IN & BTN < 4){ 
+PIOUT~LEDS; 
+BTN++; 
+} 
+BTN=O;
 
 } }
 
 Questão 4
 
-#include <msp450g2553.h> #define LEDS=(BIT1+BIT0) /*(bitx + bity) / #define BTN=0 / AUXILIAR */ int main (void) { WDTCTL= WDTPW + WDTHOLD; PIOUT=0; PIDIR= LEDS; FOR(;;) { WHILE(BTN < 2){ PIOUT~LEDS; BTN++; }
-} }
+#include <msp450g2553.h> 
+#define LEDS=(BIT1+BIT0) /*(bitx + bity) / 
+#define BTN=0 / AUXILIAR */ 
+int main (void) 
+{ 
+WDTCTL= WDTPW + WDTHOLD; 
+PIOUT=0; 
+PIDIR= LEDS; 
+FOR(;;) 
+{ 
+WHILE(BTN < 2)
+{ 
+PIOUT~LEDS; BTN++; 
+}
+} 
+}
 
-Questão 5 #include <msp450g2553.h> #define LEDS=(BIT1 +BIT0) /*(bitx + bity) / #define BTN=0 / AUXILIAR */ uma_vez () { WDTCTL= WDTPW + WDTHOLD; PIOUT=0; PIDIR= LEDS; FOR(;;) { WHILE(BTN < 2){ PIOUT~LEDS; BTN++; }
-} } int main (void) { WDTCTL= WDTPW + WDTHOLD; BTN2=0; PIOUT=0; PIDIR= LEDS; FOR(;;) { WHILE(BTN2<2){ uma_vez () BTN2++; } }
+Questão 5 #include <msp450g2553.h> 
+#define LEDS=(BIT1 +BIT0) /*(bitx + bity) / 
+#define BTN=0 / AUXILIAR */ 
+uma_vez () { 
+WDTCTL= WDTPW + WDTHOLD; 
+PIOUT=0; 
+PIDIR= LEDS; 
+FOR(;;) 
+{ 
+WHILE(BTN < 2)
+{ 
+PIOUT~LEDS; 
+BTN++; 
+}
+} 
+} 
+int main (void) { 
+WDTCTL= WDTPW + WDTHOLD;
+BTN2=0; 
+PIOUT=0; 
+PIDIR = LEDS; 
+FOR(;;) 
+{ 
+WHILE(BTN2<2)
+{
+uma_vez () 
+BTN2++; 
+} 
+}
 
-Questão 6 #include <msp450g2553.h> #define LEDS = ( BIT1 + BIT0) #define BTN = 0
+Questão 6 
+#include <msp450g2553.h> 
+#define LEDS = ( BIT1 + BIT0) 
+#define BTN = 0
 
-uma_vez() { WDTCTL= WDTPW + WDTHOLD; PIOUT=0; PIDIR= LEDS; FOR(;;) { WHILE(BTN < 2){ PIOUT~LEDS; BTN++; }
-} } int main(void) WDTCTL= WDTPW + WDTHOLD; PIOUT=0; BTN2=0; PIDIR= LEDS; FOR(;;) { WHILE(P1IN & BTN2<2){ led_uma_vez (); BTN2++; } }
+uma_vez() { 
+WDTCTL= WDTPW + WDTHOLD; 
+PIOUT=0; 
+PIDIR= LEDS; 
+FOR(;;) 
+{ 
+WHILE(BTN < 2)
+{ 
+PIOUT~LEDS; 
+BTN++; 
+}
+} 
+} 
+int main(void) 
+WDTCTL= WDTPW + WDTHOLD; 
+PIOUT=0; 
+BTN2=0; 
+PIDIR= LEDS; 
+FOR(;;) 
+{ 
+WHILE(P1IN & BTN2<2)
+{ 
+led_uma_vez (); 
+BTN2++; 
+} 
+}
