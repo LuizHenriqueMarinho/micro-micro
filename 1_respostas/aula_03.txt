@@ -18,27 +18,28 @@ c) A &=~ BIT2;
 
 d) A &=~ (BIT2 + BIT3);
 
-e) A ~ BIT7;
+e) A ^= BIT7;
 
-f) a~(BIT7+BIT6+BIT5+BIT4); a|=(BIT3+BIT2+BIT1+BIT0);
+f) a^=(BIT7+BIT6+BIT5+BIT4); a|=(BIT3+BIT2+BIT1+BIT0);
 
-Questão 2 #include <msp450g2553.h> 
-#define LEDS=(BIT1 +BIT0)
-#define BTN 
-int main (void) { 
-WDTCTL= WDTPW + WDTHOLD;
-P1OUT=0; 
-P1DIR= LEDS;
-FOR(;;){
-IF (BTN=1) 
-{
-P1OUT|=LEDS; BTN=0;
-} 
-ELSE 
-{
-PIOUT=~LEDS; BTN=1;
+Questão 2 
+
+#include <msp430.h>
+
+int main(void){
+    WDTCTL = WDTPW + WDTHOLD; // é necessarrio
+            P1DIR |= 0x0041; // os numeros das portas são dados em hexadecimal e vão de 01,02,03,04,10,20,30,40.,, P1DIR |= é a mesma coisa que P1DIR = P1DIR | 0x0041
+    for(;;) //laço infinito
+    {
+        volatile unsigned int i;
+        P1OUT ^= 0x0041;   //0x significa que está em hexadecimal.  (~ significa not)(^ significa xor )
+        i=10000; //alternancia usando OR.
+        do i--;
+        while( i != 0);
+    }
+
 }
-}
+
 
 Questão 3 
 #include <msp450g2553.h> 
