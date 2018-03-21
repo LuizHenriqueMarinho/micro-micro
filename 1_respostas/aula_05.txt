@@ -1,16 +1,26 @@
-Para as questões 2 a 5, considere que as variáveis f, g, h, i e j são do tipo inteiro (16 bits na arquitetura do MSP430), e que o vetor A[] é do tipo inteiro. Estas variáveis estão armazenadas nos seguintes registradores: f: R4 g: R5 h: R6 i: R7 j: R8 A: R9 Utilize os registradores R11, R12, R13, R14 e R15 para armazenar valores temporários.
+Para as questões 2 a 5, considere que as variáveis f, g, h, i e j são do tipo inteiro (16 bits na arquitetura do MSP430), 
+e que o vetor A[] é do tipo inteiro. Estas variáveis estão armazenadas nos seguintes registradores: 
+f: R4 g: R5 h: R6 i: R7 j: R8 A: R9 Utilize os registradores R11, R12, R13, R14 e R15 para armazenar valores temporários.
 
-Escreva os trechos de código assembly do MSP430 para: (a) Somente setar o bit menos significativo de R5. R5 |= BIT0;
+1- Escreva os trechos de código assembly do MSP430 para: 
+(a) Somente setar o bit menos significativo de R5. 
+bis.w #01,R5;
 
-(b) Somente setar dois bits de R6: o menos significativo e o segundo menos significativo. R6 |= (BIT1 + BIT0)
+(b) Somente setar dois bits de R6: o menos significativo e o segundo menos significativo. 
+bis.w #0x03,R6; 
 
-(c) Somente zerar o terceiro bit menos significativo de R7. R7 &=~ BIT2
+(c) Somente zerar o terceiro bit menos significativo de R7. 
+and.w #0x0B,R7;
 
-(d) Somente zerar o terceiro e o quarto bits menos significativo de R8. R8 &=~BIT2+BIT3;
+(d) Somente zerar o terceiro e o quarto bits menos significativo de R8. 
+and.w #0x03,R8
 
-(e) Somente inverter o bit mais significativo de R9. R9 ~ (BITF)
+(e) Somente inverter o bit mais significativo de R9.
+xor.w #80,R9;
 
-(f) Inverter o nibble mais significativo de R10, e setar o nibble menos significativo de R10. R10~(BIT8+BIT9+BITA+BITB+BITC+BITD+BITE+BITF); R10|=(BIT0+BIT1+BIT2+BIT3+BIT4+BIT5+BIT6+BIT7);
+(f) Inverter o nibble mais significativo de R10, e setar o nibble menos significativo de R10. 
+xor.w #F0, R10;
+bis.w #0F,R10;
 
 "Traduza" o seguinte trecho de código em C para o assembly do MSP430:
 
