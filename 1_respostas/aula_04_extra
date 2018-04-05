@@ -6,15 +6,36 @@ f: R4 g: R5 h: R6 i: R7 j: R8 A: R9 Utilize os registradores R11, R12, R13, R14 
 Traduza as seguintes linhas em C para a linguagem assembly do MSP430. Utilize somente as seguintes instruções: 
 mov.w, add.w, sub.w, clr.w, dec.w, decd.w, inc.w e incd.w.
 (a) f *= 5;
-add.w R4,R4 // mujltiplicar nada mais é que somar. add.w R4,R4
-add.w R4,R4
-add.w R4,R4
+add.w R4,R4; // mujltiplicar nada mais é que somar. add.w R4,R4
+add.w R4,R4;
+add.w R4,R4;
+add.w R4,R4;
 
-(b) g *= 6; o mesmo da questão 5 com mais uma linha.
+(b) g *= 6; 
+o mesmo da questão 5 com mais uma linha.
 
-(d) A[2] = 6A[1] + 5A[0]; add.w 1(R9),1(R9) //21(R9) add.w 1(R9),1(R9) //31(R9) add.w 1(R9),1(R9) //41(R9) add.w 1(R9),1(R9) //51(R9) add.w 1(R9),1(R9) //61(R9) add.w 0(R9),0(R9) //20(R9) add.w 0(R9),0(R9) //30(R9) add.w 0(R9),0(R9) //40(R9) add.w 0(R9),0(R9) //50(R9) add.w 0(R9),1(R9) // 61(R9) = 50(R9) + 61(R9) mov.w 1(R9),2(R9) // 2(R9) = 61(R9) = 50(R9) + 6*1(R9)
+(d) A[2] = 6A[1] + 5A[0]; 
+add.w 1(R9),1(R9); //2*1(R9) 
+add.w 1(R9),1(R9); //3*1(R9) 
+add.w 1(R9),1(R9); //4*1(R9) 
+add.w 1(R9),1(R9); //5*1(R9)
+add.w 1(R9),1(R9);//6*1(R9) 
+add.w 0(R9),0(R9); //2*0(R9) 
+add.w 0(R9),0(R9); //3*0(R9) 
+add.w 0(R9),0(R9); //4*0(R9) 
+add.w 0(R9),0(R9); //5*0(R9) 
+add.w 0(R9),1(R9); // 6*1(R9) = 5*0(R9) + 6*1(R9) 
+mov.w 1(R9),2(R9); // 2(R9) = 6*1(R9) = 5*0(R9) + 6*1(R9)
 
 (e) A[3] = 3f - 5h;
+add.w R4,R4;
+add.w R4,R4;
+add.w R5,R5;
+add.w R5,R5;
+add.w R5,R5;
+sub.w R5,R4;
+mov.w R4,3(R9);
 
 (f) A[5] = 6*(f - 2*h);
+
 
