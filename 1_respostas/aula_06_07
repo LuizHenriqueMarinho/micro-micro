@@ -37,4 +37,106 @@ RAIZ_end:         mov.w R5,R15
                   pop R5
                   ret
                   
+2-
+a)
+int x,N,i;
+for(i=0;i<n;i++)
+  {
+  x*=x;
+  }
+  return x
+
+
+b)
+MULT_unsigned:
+	tst.w R14 ; b==0 ?
+	jnz MULT_unsigned_else ; Se b não é zero, vá para o else
+	clr.w R15 ; return 0
+ret
+MULT_unsigned_else:
+	push.w R15 ; Guarde a na pilha
+	dec.w R14 ; b--
+	call #MULT_unsigned ; Calcule a*(b-1)
+	pop.w R14 ; Recupere a na pilha
+	add.w R14, R15 ; return a + a*(b-1)
+ret
+
+MULT_signed:
+	tst.w R14 ; b<0 ?
+	jge MULT_signed_else ; Se b>=0, não é necessário trocar sinais
+	inv.w R15 ; a = -a usando complemento de 2
+	inc.w R15
+	inv.w R14 ; b = -b usando complemento de 2
+	inc.w R14
+	MULT_signed_else:
+	call #MULT_unsigned
+ret ; Retorne da subrotina
+; testar em assembly
+POTENCIA:
+	push.w R15 ; Guarde a na pilha
+	call #MULT_signed
+	call #POTENCIA ; Calcule a*(b-1)
+	pop.w R14 ; Recupere a na pilha
+	add.w R14, R15 ; return a + a*(b-1)
+ret 
+
+3-
+
+4-
+RESTO:                                  ;Rótulo da função
+
+push.w R15                               ; guarde S na pilha
+push.w R14                               ; guarde x na pilha
+CALL #DIV                                ; A/B
+MOV.W R10,R15                            ;
+POP.W R10                                ;A
+POP.W R14                                ;B
+MOV.W R10,R15                            ;
+CALL #MULT_signed                        ;RES*B
+SUB.W R15,R10                            ; A - RES*B ARMAZENADO EM R10[RESTO]
+RET
+
+
+5-
+PRIMO:
+MOV #2,R14
+CALL #RESTO
+COMP R15,#1
+JNE EH_PRIMO
+JUMP N_EH_PRIMO
+
+MOV #3,R14
+CALL #RESTO
+COMP R15,#1
+JNE EH_PRIMO
+JUMP N_EH_PRIMO
+
+MOV #3,R14
+CALL #RESTO
+COMP R15,#1
+JNE EH_PRIMO
+JUMP N_EH_PRIMO
+
+MOV #7,R14
+CALL #RESTO
+COMP R15,#1
+JNE EH_PRIMO
+JUMP N_EH_PRIMO
+
+COMP R15,#8
+JN EH_PRIMO
+JUMP N_EH_PRIMO
+EH_PRIMO:
+MOV.W R15,#1
+N_EH_PRIMO:
+MOV.W R15,#0
+RET
+
+
+6-
+
+7-
+
+8-
+
                   
