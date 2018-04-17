@@ -11,3 +11,30 @@ unsigned int RAIZ (unsigned int s)
   }
   return x;
 }  
+
+b) em assembly
+RAIZ:             comp #2, R15  // R15 é o s
+                  jge RAIZ_nao_trivial  //  jump if greater or equal
+                  ret 
+RAIZ_nao_trivial: push R5    //puxa x para a pilha    
+                  pushR6    // puxa n para a pilha
+                  mov.w R15,R5
+                  inc R5
+                  rra R5 // divide por 2 
+                  clr R6
+RAIZ_loop:         cmp#100000, R6
+                  jeq RAIZ_end
+                  push R15
+                  mov.w R5, R14
+                  call #div
+                  add R15,R5
+                  rra R5
+                  pop R15    //puxa na pilha
+                  inc R6
+                  jmp RAIZ_loop
+RAIZ_end:         mov.w R5,R15
+                  pop R6  //a ordem importa, o maior primeiro
+                  pop R5
+                  ret
+                  
+                  
