@@ -1,0 +1,12 @@
+1-
+Ib = Ic / 100 = 4 / 100 = 40 mA.
+darlington
+Ib = Ic / β^2 = 4 /10000 = 0,4 mA
+Rb = (Vcc – 2*Vbe)/Ib = (3 – 2*0,7)/0,4*10^(-3) = 4 Kohm
+
+2-
+Ib = Ic/β = 1/120 = 8,33 mA.
+Rb = (Vcc-Vbe)/Ib
+= (Vcc-Vbe)*β/Ic = ((3,5 - 0,7)*120)/1 = 336 ohm
+
+3-
